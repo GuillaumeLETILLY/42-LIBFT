@@ -6,7 +6,7 @@
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:41:35 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/13 00:54:13 by gletilly         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:21:07 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	r;
 
 	r = 0;
-	while (*s)
-	{
+	while (s[r])
 		r++;
-		s++;
-	}
 	return (r);
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 00:42:22 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/14 23:49:14 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/14 16:49:21 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/14 19:35:10 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *s)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	int	result;
+	int	bool;
 
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	bool = 0;
+	while ((*s >= 9 && *s <= 13) && (*s == 32))
+		s++;
+	while ((*s == '+') || (*s == '-'))
 	{
-		ptr[i] = '\0';
-		i++;
+		if (bool == 1)
+			return (0);
+		bool = 1;
+	}
+	while (*s >= '0' && *s <= '9')
+	{
+		
 	}
 }
+*/

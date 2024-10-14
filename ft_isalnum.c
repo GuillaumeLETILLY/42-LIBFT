@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 14:47:12 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/08 14:47:12 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/14 16:46:45 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/14 16:46:45 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
-	return (0);
+	return (ft_isdigit(c) || ft_isalpha(c));
 }
