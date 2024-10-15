@@ -6,30 +6,30 @@
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 19:00:59 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/15 19:08:24 by gletilly         ###   ########.fr       */
+/*   Updated: 2024/10/15 19:39:17 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t dst_len;
-    size_t src_len;
-    size_t n;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	n;
+	size_t	i;
 
-    dst_len = ft_strlen(dst);
-    src_len = ft_strlen(src);
-    if (size <= dst_len)
-        return (size + src_len);
-
-    n = size - dst_len - 1;
-    size_t i = 0;
-    while (i < n && src[i] != '\0')
-    {
-        dst[dst_len + i] = src[i];
-        i++;
-    }
-    dst[dst_len + i] = '\0';
-    return (dst_len + src_len);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (size + src_len);
+	n = size - dst_len - 1;
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
