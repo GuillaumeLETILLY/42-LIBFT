@@ -18,7 +18,10 @@ SRC	:=	ft_isalpha.c \
 		ft_bzero.c \
 		ft_strnstr.c \
 		ft_memcpy.c \
-		main.c \
+		ft_atoi.c \
+		ft_memmove.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
 
 OBJ	:= $(SRC:.c=.o)
 
