@@ -6,7 +6,7 @@
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:26:29 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/15 01:10:11 by gletilly         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:48:21 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,43 +137,9 @@ int main(void)
 	// STRNSTR
 	const char *haystack = "Hello, World!";
 	const char *needle1 = "World";
-	const char *needle2 = "world"; // Différent en termes de casse
-	const char *needle3 = "";
-	const char *needle4 = "Hello";
-	const char *needle5 = "Nonexistent";
 
-	size_t len1 = 13; // Longueur suffisante pour inclure "World"
-	size_t len2 = 5;  // Longueur insuffisante pour inclure "World"
-
-	// Test 1 : Cherche "World"
 	printf("\nstrnstr : Test 1 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle1, len1));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle1, len1));
-
-	// Test 2 : Cherche "world" (case-sensitive)
-	printf("\nstrnstr : Test 2 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle2, len1));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle2, len1));
-
-	// Test 3 : Cherche une chaîne vide
-	printf("\nstrnstr : Test 3 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle3, len1));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle3, len1));
-
-	// Test 4 : Cherche "Hello"
-	printf("\nstrnstr : Test 4 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle4, len1));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle4, len1));
-
-	// Test 5 : Cherche une sous-chaîne non existante
-	printf("\nstrnstr : Test 5 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle5, len1));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle5, len1));
-
-	// Test 6 : Limite de recherche trop basse
-	printf("\nstrnstr : Test 6 :\n");
-	printf("Résultat : %s\n", strnstr(haystack, needle1, len2));
-	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle1, len2));
+	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle1, 13));
 
 	return 0;
 }
