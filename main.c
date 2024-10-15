@@ -6,7 +6,7 @@
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:26:29 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/15 14:48:21 by gletilly         ###   ########.fr       */
+/*   Updated: 2024/10/15 19:13:49 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <ctype.h>
 #include <strings.h>
-#include <bsd/string.h>
 
 int main(void)
 {
@@ -132,7 +131,6 @@ int main(void)
 	printf("%s: %p \n", test_string, memset(test_string, asciivar, 12));
 	printf("\nft_memset : \n\n");
 	printf("%s: %p \n", test_string, ft_memset(test_string, asciivar, 12));
-	printf("\n");
 
 	// STRNSTR
 	const char *haystack = "Hello, World!";
@@ -141,6 +139,35 @@ int main(void)
 	printf("\nstrnstr : Test 1 :\n");
 	printf("ft_strnstr : Résultat : %s\n", ft_strnstr(haystack, needle1, 13));
 
+	// MEMMOVE
+	printf("\nmemmove : \n\n");
+	char str1[20] = "Bonjour, monde!";
+	memmove(str1 + 8, str1, 7);
+	printf("Sans chevauchement: %s\n", str1);
+	char str2[20] = "Hello, World!";
+	ft_memmove(str2 + 7, str2, 5);
+	printf("Avec chevauchement: %s\n", str2);
+
+	// STRLCPY
+	printf("\nstrlcpy : \n\n");
+	char dest[20];
+    const char *src = "Hello, World!";
+    size_t size = 20;
+	size_t result = ft_strlcpy(dest, src, size);
+    printf("Source: '%s', Size: %zu\n", src, size);
+    printf("Copied: '%s', Return: %zu\n\n", dest, result);
+
+	// STRLCAT
+	printf("\nstrlcat : \n\n");
+	char dest_cat[30];
+	const char *src_cat = "World!";
+	size_t size_cat;
+	strcpy(dest_cat, "Hello, ");
+	size_cat = 30;
+	size_t result_cat = ft_strlcat(dest_cat, src_cat, size_cat);
+	printf("Source: '%s', Dest Before: '%s', Size: %zu\n", src_cat, dest_cat, size_cat);
+	printf("Concatenated: '%s', Return: %zu\n\n", dest_cat, result_cat);
+
+	printf("\n");
 	return 0;
 }
-
