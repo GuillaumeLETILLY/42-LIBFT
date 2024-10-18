@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 14:48:44 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/16 17:43:58 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/16 18:57:09 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/16 20:52:59 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	const unsigned char	*s;
-	unsigned char		*d;
+	size_t	slen;
+	char	*copy;
+	size_t	i;
 
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (n == 0 || d == s)
-		return (dest);
-	if (d < s)
-		while (n--)
-			*d++ = *s++;
-	else
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (start >= slen)
+		return (ft_strdup(""));
+	if (len > slen - start)
+		len = slen - start;
+	copy = malloc(len + 1);
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		d += n;
-		s += n;
-		while (n--)
-			*(--d) = *(--s);
+		copy[i] = s[start + i];
+		i++;
 	}
-	return (dest);
+	copy[i] = '\0';
+	return (copy);
 }

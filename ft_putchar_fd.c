@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 14:48:44 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/16 17:43:58 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/17 22:14:45 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/17 22:16:15 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	const unsigned char	*s;
-	unsigned char		*d;
-
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (n == 0 || d == s)
-		return (dest);
-	if (d < s)
-		while (n--)
-			*d++ = *s++;
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*(--d) = *(--s);
-	}
-	return (dest);
+	write(fd, &c, 1);
 }

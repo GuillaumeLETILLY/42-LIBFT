@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 14:48:44 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/16 17:43:58 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/17 23:09:30 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/17 23:20:52 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	const unsigned char	*s;
-	unsigned char		*d;
+	unsigned int	index;
+	char			*copy;
+	size_t			len;
 
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (n == 0 || d == s)
-		return (dest);
-	if (d < s)
-		while (n--)
-			*d++ = *s++;
-	else
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	copy = (char *)malloc(len + 1);
+	if (!copy)
+		return (NULL);
+	index = 0;
+	while (index < len)
 	{
-		d += n;
-		s += n;
-		while (n--)
-			*(--d) = *(--s);
+		copy[index] = f(index, s[index]);
+		index++;
 	}
-	return (dest);
+	copy[index] = '\0';
+	return (copy);
 }

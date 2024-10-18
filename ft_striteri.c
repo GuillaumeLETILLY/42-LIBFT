@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gletilly <gletilly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 14:48:44 by gletilly          #+#    #+#             */
-/*   Updated: 2024/10/16 17:43:58 by gletilly         ###   ########.fr       */
+/*   Created: 2024/10/17 23:34:34 by gletilly          #+#    #+#             */
+/*   Updated: 2024/10/18 00:06:11 by gletilly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	const unsigned char	*s;
-	unsigned char		*d;
+	unsigned int	index;
+	size_t			len;
 
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (n == 0 || d == s)
-		return (dest);
-	if (d < s)
-		while (n--)
-			*d++ = *s++;
-	else
+	if (s && f)
 	{
-		d += n;
-		s += n;
-		while (n--)
-			*(--d) = *(--s);
+		len = ft_strlen(s);
+		index = 0;
+		while (index < len)
+		{
+			f(index, &s[index]);
+			index++;
+		}
+		s[index] = '\0';
 	}
-	return (dest);
 }
